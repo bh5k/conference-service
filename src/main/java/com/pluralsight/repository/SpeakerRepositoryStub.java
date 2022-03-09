@@ -53,6 +53,13 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
         return storedSpeaker;
     }
 
+    @Override
+    public void delete(Long id) {
+        Speaker speaker = findSpeakerById(speakers, id);
+
+        speakers.remove(speaker);
+    }
+
     private Speaker findSpeakerById(List<Speaker> speakers, Long id) {
         return speakers.stream().filter(s -> s.getId().equals(id)).findFirst().orElse(null);
     }

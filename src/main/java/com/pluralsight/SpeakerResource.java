@@ -58,4 +58,13 @@ public class SpeakerResource {
 
         return speaker;
     }
+
+    @Path("{id}")
+    @DELETE
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public void deleteSpeaker(@PathParam("id") Long id) {
+        speakerRepository.delete(id);
+    }
+
 }

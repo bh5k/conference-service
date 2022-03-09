@@ -56,6 +56,14 @@ public class SpeakerClient {
         return returnSpeaker;
     }
 
+    public void delete(Long id) {
+        Response response = client
+                .target(SPEAKER_URI)
+                .path(String.valueOf(id))
+                .request(MediaType.APPLICATION_JSON)
+                .delete();
+    }
+
     public static void main (String args []) {
         SpeakerClient client = new SpeakerClient();
         Speaker speaker = client.get(1L);
@@ -77,6 +85,7 @@ public class SpeakerClient {
         speaker = client.put(speaker);
 
         System.out.println(speaker.getCompany());
-    }
 
+        client.delete(speaker.getId());
+    }
 }
