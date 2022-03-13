@@ -61,7 +61,9 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
     }
 
     @Override
-    public List<Speaker> findByCompany(List<String> companies) {
+    public List<Speaker> findByCompany(List<String> companies, int ageFromVal, int ageToVal) {
+        //select * from speakers where company in [?,?] and age > ? and age < ?
+
         List<Speaker> speakers = new ArrayList<>();
 
         Speaker speaker = new Speaker();

@@ -20,8 +20,11 @@ public class SpeakerSearchResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response searchForSpeakers(@QueryParam(value="company")List<String> companies) {
-        List<Speaker> speakers = speakerRepository.findByCompany(companies);
+    public Response searchForSpeakers(@QueryParam(value="company")List<String> companies,
+                                      @QueryParam(value = "ageFrom") int ageFromVal,
+                                      @QueryParam(value = "ageTo") int ageToVal) {
+
+        List<Speaker> speakers = speakerRepository.findByCompany(companies, ageFromVal, ageToVal);
 
         if((speakers == null) || speakers.size() <= 0) {
             return Response.status(Response.Status.NOT_FOUND).build();
