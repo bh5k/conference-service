@@ -60,6 +60,20 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
         speakers.remove(speaker);
     }
 
+    @Override
+    public List<Speaker> findByCompany(List<String> companies) {
+        List<Speaker> speakers = new ArrayList<>();
+
+        Speaker speaker = new Speaker();
+        speaker.setName("Randy");
+        speaker.setCompany("Snowbird");
+        speaker.setId(78L);
+
+        speakers.add(speaker);
+
+        return speakers;
+    }
+
     private Speaker findSpeakerById(List<Speaker> speakers, Long id) {
         return speakers.stream().filter(s -> s.getId().equals(id)).findFirst().orElse(null);
     }
