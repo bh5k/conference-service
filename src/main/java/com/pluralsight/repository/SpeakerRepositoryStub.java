@@ -1,6 +1,7 @@
 package com.pluralsight.repository;
 
 import com.pluralsight.model.Speaker;
+import com.pluralsight.model.SpeakerSearch;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +64,22 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
     @Override
     public List<Speaker> findByCompany(List<String> companies, int ageFromVal, int ageToVal) {
         //select * from speakers where company in [?,?] and age > ? and age < ?
+
+        List<Speaker> speakers = new ArrayList<>();
+
+        Speaker speaker = new Speaker();
+        speaker.setName("Randy");
+        speaker.setCompany("Snowbird");
+        speaker.setId(78L);
+
+        speakers.add(speaker);
+
+        return speakers;
+    }
+
+    @Override
+    public List<Speaker> findByConstraints(SpeakerSearch speakerSearch) {
+        System.out.println(speakerSearch.getSearchType());
 
         List<Speaker> speakers = new ArrayList<>();
 

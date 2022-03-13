@@ -1,6 +1,7 @@
 package com.pluralsight.repository;
 
 import com.pluralsight.model.Speaker;
+import com.pluralsight.model.SpeakerSearch;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface SpeakerRepository {
     void delete(Long id);
 
     List<Speaker> findByCompany(List<String> companies, int ageFromVal, int ageToVal);
+
+    List<Speaker> findByConstraints(SpeakerSearch speakerSearch);
 }
