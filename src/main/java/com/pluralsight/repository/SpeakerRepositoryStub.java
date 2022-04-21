@@ -10,7 +10,7 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
 
     private static List<Speaker> speakers = new ArrayList<>();
 
-    public SpeakerRepositoryStub () {
+    static {
         Speaker speaker1 = new Speaker();
         speaker1.setId(1L);
         speaker1.setName("Bryan");
@@ -24,6 +24,9 @@ public class SpeakerRepositoryStub implements SpeakerRepository {
         speaker2.setCompany("Wilco");
 
         speakers.add(speaker2);
+    }
+    public SpeakerRepositoryStub () {
+
     }
 
     @Override
